@@ -10,7 +10,7 @@
 - [*Flask*](https://flask.palletsprojects.com/en/2.0.x/) for the back-end
 - [*SQLite*](https://www.sqlite.org/index.html) for the database
   
-## Setup
+## Start-Up
 
 Clone this repository to your desired folder and run the below command in your terminal:
 
