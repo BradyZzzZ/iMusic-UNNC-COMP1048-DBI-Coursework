@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} Add New Track {% endblock %}
+{% set active_page = "add" %}
+{% block content %}
+    <h3>
+        Add a New Track
+    </h3>
+    <p>
+    Use the form below to specify the name of the new Track you would like to add to the system.
+    </p>
+
+    <form action="/add/track" method="POST">
+        <div class="form-group">
+            <label for="track_name">Track Name</label>
+            <input type="text" class="form-control" id="track_name" name="track_name" placeholder="Track Name">
+        </div>
+        <div class="form-group">
+            <label for="track_album">Album</label>
+            <select class="form-control" id="track_album" name="track_album">
+                {% for album in albums %}
+                    <option value="{{ album.AlbumId }}">{{ album.Title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="track_genre">Genre</label>
+            <select class="form-control" id="track_genre" name="track_genre">
+                {% for genre in genres %}
+                    <option value="{{ genre.GenreId }}">{{ genre.Name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="track_composer">Composer</label>
+            <input type="text" class="form-control" id="track_composer" name="track_composer" placeholder="Composer">
+        </div>
+        
+        <div class="form-group">
+            <label for="track_duration">Duration (in seconds)</label>
+            <input type="number" class="form-control" id="track_duration" name="track_duration" placeholder="Track Duration (in Seconds)">
+        </div>
+        <div class="form-group">
+            <label for="track_price">Price</label>
+            <input type="number" class="form-control" id="track_price" name="track_price" placeholder="Price" min="0" step="0.01">
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+{% endblock %}

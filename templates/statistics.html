@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} Price Statistics {% endblock %}
+{% set active_page = "statistics" %}
+{% block content %}
+
+<h1>Price Statistics</h1>
+
+<table class="table table-striped">
+    <thead>
+    <th>Price</th>
+    <th># Tracks </th>
+    <th># Albums</th>
+    <th># Artists</th>
+    <th>Duration<br/> (Seconds)</th>
+    <th>Total Value</th>
+    </thead>
+    {% for price in prices %}
+        <tr>
+            <td>{{ price["Price"] }}</td>
+            <td>{{ price["Tracks"] }}</td>
+            <td>{{ price["Albums"] }}</td>
+            <td>{{ price["Artists"] }}</td>
+            <!-- "%.0f" is used to round the number to the nearest integer -->
+            <td>{{ "%.0f"|format(price["Duration"]) }}</td>
+            <!-- "%.2f" is a format string that will display the number with 2 decimal places -->
+            <td>{{ "%.2f"|format(price["TotalValue"]) }}</td>
+        </tr>
+    {% endfor %}
+</table>
+    
+{% endblock %}
+    
